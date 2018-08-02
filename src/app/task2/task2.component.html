@@ -1,0 +1,12 @@
+<h3> Photo Gallery</h3>
+<hr>
+<table border=1 class="table table-striped">
+  <th>Id</th>
+  <th>Name</th>
+  <th>Photo</th>
+  <tr *ngFor="let gal of gallery">
+    <td>{{gal.id}}</td>
+    <td>{{gal.name}}</td>
+    <td><img [src]="gal.url" width="100px"></td>
+  </tr>
+</table>

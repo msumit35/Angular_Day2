@@ -1,0 +1,39 @@
+
+<h3>Order Form</h3>
+<hr>
+<form novalidate #myForm="ngForm" (submit)="onSubmit(myForm.value)">
+
+    <input type="text" class="form-control" hidden name="selectedOrder" [(ngModel)]="order.selectedOrder">
+  <div class="form-group">
+    <label>Name:</label>
+    <input type="text" class="form-control" name="name" [(ngModel)]="order.name">
+  </div>
+  <div class="form-group">
+    <label>Gender:</label>
+    <div class="form-group">
+    <input type="radio" name="gender" value="Male" [(ngModel)]="order.gender" >Male
+    <input type="radio" name="gender" value="Female" [(ngModel)]="order.gender">Female
+  </div>
+  </div>
+  <div class="form-group">
+    <label>Order for:</label>
+    <select class="form-control" (change)="onOrderChange($event.target.value)">
+        <option *ngFor="let item of order.orderFor" [value]="item.id">
+          {{item.name}}
+        </option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<br>
+<hr>
+<h2>Order Details</h2>
+<div class="form-group">
+  <label>Name: {{order.name}}</label>
+</div>
+<div class="form-group">
+    <label>Gender: {{order.gender}}</label>
+</div>
+<div class="form-group">
+    <label>Order for: {{order.selectedOrder.name}}</label>
+</div>
